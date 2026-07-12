@@ -20,7 +20,7 @@ ShellRoot {
 
         property int timeHeight: 20
         property int timeWidth: 90
-        property int dateWidth: 110
+        property int dateWidth: 160
         property bool showTime: true
 
         implicitHeight: timeHeight
@@ -38,7 +38,7 @@ ShellRoot {
                 text: clockWindow.showTime ? timeString : dateString
 
                 property string timeString: Qt.formatDateTime(clock.date, "hh:mm:ss")
-                property string dateString: Qt.formatDateTime(clock.date, "yyyy/MM/dd")
+                property string dateString: Qt.formatDateTime(clock.date, "yyyy/MM/dd, ddd")
 
                 topPadding: 3.5
                 color: "#33332C"
