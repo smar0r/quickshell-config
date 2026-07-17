@@ -17,13 +17,7 @@ ShellRoot {
         }
 
         color: "transparent"
-        // property int timeHeight: 20
-        // property int timeWidth: 90
-        // property int dateWidth: 150
         property bool showTime: true
-
-        // implicitHeight: timeHeight
-        // implicitWidth: showTime ? timeWidth : dateWidth
 
         implicitWidth: clockRect.width
         implicitHeight: 20
