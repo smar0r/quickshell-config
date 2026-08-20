@@ -24,7 +24,6 @@ ShellRoot {
 
         Rectangle {
             id: clockRect
-            // anchors.fill: parent
             radius: 4
             color: "#E2E2E2"
 
@@ -37,7 +36,7 @@ ShellRoot {
                 text: clockWindow.showTime ? timeString : dateString
 
                 property string timeString: Qt.formatDateTime(clock.date, "hh:mm:ss")
-                property string dateString: Qt.formatDateTime(clock.date, "ddd!yyyy/MM/dd")
+                property string dateString: Qt.formatDateTime(clock.date, "ddd yyyy/MM/dd")
 
                 topPadding: 3.5
                 color: "#33332C"
