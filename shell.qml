@@ -1,56 +1,23 @@
 import Quickshell
 import QtQuick
+import QtQuick.Layouts
+import Niri
 
 ShellRoot {
-    SystemClock {
-        id: clock
-        precision: SystemClock.Seconds
-    }
+    id: root
 
-    PanelWindow {
-        id: clockWindow
-        anchors {
-            top: true
-        }
-        margins {
-            top: 12
-        }
+    Niri {
+        id: niri
+        Component.onCompleted: connect()
 
-        color: "transparent"
-        property bool showTime: true
-
-        implicitWidth: clockRect.width
-        implicitHeight: 20
-
-        Rectangle {
-            id: clockRect
-            radius: 4
-            color: "#E2E2E2"
-
-            width: clockText.contentWidth + 8
-            height: 20
-
-            Text {
-                id: clockText
-                anchors.centerIn: parent
-                text: clockWindow.showTime ? timeString : dateString
-
-                property string timeString: Qt.formatDateTime(clock.date, "hh:mm:ss")
-                property string dateString: Qt.formatDateTime(clock.date, "ddd yyyy/MM/dd")
-
-                topPadding: 3.5
-                color: "#33332C"
-                font.pixelSize: 18
-                font.family: "ComicShannsMono Nerd Font Propo"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    clockWindow.showTime = !clockWindow.showTime;
-                }
-            }
+        onConnected: console.info("Bluetooth device connecteduh successfuly")
+        onErrorOccurred: function (error) {
+            console.error("Niri error:", error);
         }
     }
-    Qsconfwc {}
+
+    LazyLoader {
+        active: true
+        component: Bar {}
+    }
 }
