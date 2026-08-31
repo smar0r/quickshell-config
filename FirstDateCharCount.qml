@@ -33,4 +33,5 @@ Rectangle {
             parent.width = textBlock.contentWidth;
         }
     }
+    width: textBlock.contentWidth
 }
